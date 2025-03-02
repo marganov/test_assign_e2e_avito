@@ -9,10 +9,10 @@ class DataProvider:
             (100, 1),
             (101, 3),
             (199, 3),
-            (200, 5),
+            (200, 3),
             (201, 5),
             (499, 5),
-            (500, 10),
+            (500, 5),
             (501, 10)
         ]
     
@@ -24,12 +24,12 @@ class DataProvider:
         """ Метод генерирует по 10 сэмплов случайных данных"""
         random_data = []
         for _ in range(num_samples):
-            points = random.randint(0, 1000)
-            if points < 100:
+            points = random.randint(0, 10000)
+            if 0 <= points <= 100:
                 discount = 1
-            elif points < 200:
+            elif 101 <= points <= 200:
                 discount = 3
-            elif points < 500:
+            elif 201 <= points <= 500:
                 discount = 5
             else:
                 discount = 10
@@ -37,9 +37,5 @@ class DataProvider:
         return random_data
     
     def get_invalid_test_data(self, num_samples=3):
-        """ Метод генерирует по 3 семпла невалидных значений"""
-        invalid_data=[]
-        for _ in range(num_samples):
-            points = random.randint(-100, -1)
-            invalid_data.append((points, "Invalid data, check points!"))
-        return invalid_data
+        """ Метод генерирует по 3 сэмпла невалидных значений"""
+        return [random.randint(-100, -1) for _ in range(num_samples)]
