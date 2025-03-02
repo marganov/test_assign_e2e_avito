@@ -1,6 +1,6 @@
 import random
 
-class TestDataProvider:
+class DataProvider:
     def __init__(self):
         self.fixed_test_data = [
             (0, 1),
