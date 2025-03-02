@@ -4,27 +4,27 @@ from discount_calculator import DiscountCcalculator
 from data_provider import DataProvider
 
 # Фикстура для представления DiscountCcalculator
-@pytest.fixture
+@pytest.fixture(scope="class")
 def discount_calculator():
     return DiscountCcalculator
 
 # Фикстура для представления DataProvider
-@pytest.fixture
+@pytest.fixture(scope="class")
 def data_provider():
     return DataProvider
 
 # Фикстура для получения фиксированных тестовых данных
-@pytest.fixture
+@pytest.fixture(scope="class")
 def fixed_test_data(data_provider):
     return data_provider.get_fixed_test_data()
 
 # Фикстура для получения случайных тестовых данных
-@pytest.fixture
+@pytest.fixture(scope="class")
 def random_test_data(data_provider):
     return data_provider.get_random_test_data()
 
 # Фикстура для получения невалидных тестовых данных
-@pytest.fixture
+@pytest.fixture(scope="class")
 def invalid_test_data(data_provider):
     return data_provider.get_invalid_test_data()
 
